@@ -1,4 +1,5 @@
 ﻿using Domain;
+using Domain.Database;
 using Microsoft.EntityFrameworkCore;
 
 namespace DAL;

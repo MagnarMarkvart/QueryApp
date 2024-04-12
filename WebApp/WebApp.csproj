@@ -23,4 +23,16 @@
       <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+        <ProjectReference Include="..\DAL\DAL.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <_ContentIncludedByDefault Remove="Pages\Queries\Create.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Queries\Delete.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Queries\Details.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Queries\Edit.cshtml" />
+      <_ContentIncludedByDefault Remove="Pages\Queries\Index.cshtml" />
+    </ItemGroup>
+
 </Project>

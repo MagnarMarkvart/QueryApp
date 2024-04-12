@@ -1,0 +1,55 @@
+@page
+@model WebApp.Pages_Queries.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Query</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Query.QueryId" />
+            <div class="form-group">
+                <label asp-for="Query.Description" class="control-label"></label>
+                <input asp-for="Query.Description" class="form-control" />
+                <span asp-validation-for="Query.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Query.Importance" class="control-label"></label>
+                <input asp-for="Query.Importance" class="form-control" />
+                <span asp-validation-for="Query.Importance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Query.CreatedAt" class="control-label"></label>
+                <input asp-for="Query.CreatedAt" class="form-control" />
+                <span asp-validation-for="Query.CreatedAt" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Query.Deadline" class="control-label"></label>
+                <input asp-for="Query.Deadline" class="form-control" />
+                <span asp-validation-for="Query.Deadline" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Query.DealtWith" class="control-label"></label>
+                <input asp-for="Query.DealtWith" class="form-control" />
+                <span asp-validation-for="Query.DealtWith" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

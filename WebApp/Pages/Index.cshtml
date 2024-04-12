@@ -3,8 +3,36 @@
 @{
     ViewData["Title"] = "Home page";
 }
+<!DOCTYPE html>
 
+<html lang="en">
+<head>
+    <title>HomePage</title>
+    
+    <style>
+        .btn-outline-dark {
+            margin-bottom: 15px;
+        }
+    </style>
+</head>
+<body>
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <div>
+        <img src="~/Assets/question-mark.png" alt="QueryApp" asp-append-version="true" width="300" height="260"/>
+        <h3>@Model.Statistics</h3>
+    </div>
+
+    <div>
+        <a class="btn btn-outline-dark" asp-page="/Queries/Create">
+            Sisestage Pöördumine
+        </a>
+    </div>
+
+    <div>
+        <a class="btn btn-outline-dark" asp-page="/Queries/Index">
+            Vaadake Kõiki Aktiivseid Pöördumisi
+        </a>
+    </div>
+    
 </div>
+</body>

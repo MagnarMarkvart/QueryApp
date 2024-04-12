@@ -1,0 +1,83 @@
+@page
+@model WebApp.Pages_Queries.IndexModel
+
+@{
+    ViewData["Title"] = "Pöördumised";
+}
+
+<h1>Kõik Pöördumised</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Kirjeldus
+            </th>
+            <th>
+                Loodud
+            </th>
+            <th>
+                Tähtaeg
+            </th>
+            <th>
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Query) {
+    if (item.Deadline.Subtract(DateTime.Now) < TimeSpan.FromHours(1) && item.DealtWith == null)
+    {
+        <tr style="color: red">
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="Id" value="@item.QueryId">
+                    
+                    <input type="submit" value="Märgi sooritatuks" class="btn btn-outline-dark" />
+                </form>
+            </td>
+            @* <td> *@
+            @*     <a asp-page="./Edit" asp-route-id="@item.QueryId">Edit</a> | *@
+            @*     <a asp-page="./Details" asp-route-id="@item.QueryId">Details</a> | *@
+            @*     <a asp-page="./Delete" asp-route-id="@item.QueryId">Delete</a> *@
+            @* </td> *@
+        </tr>
+    }
+    else if (item.DealtWith == null)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedAt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Deadline)
+            </td>
+            <td>
+                <form method="post">
+                    <input type="hidden" name="Id" value="@item.QueryId">
+    
+                    <input type="submit" value="Märgi sooritatuks" class="btn btn-outline-dark" />
+                </form>
+            </td>
+            @* <td> *@
+            @*     <a asp-page="./Edit" asp-route-id="@item.QueryId">Edit</a> | *@
+            @*     <a asp-page="./Details" asp-route-id="@item.QueryId">Details</a> | *@
+            @*     <a asp-page="./Delete" asp-route-id="@item.QueryId">Delete</a> *@
+            @* </td> *@
+        </tr>
+    }
+}
+    </tbody>
+</table>
